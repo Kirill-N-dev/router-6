@@ -16,19 +16,15 @@ const UserPage = ({ userId }) => {
   // Не знаю, как её организовать иначе! Забыл уже.
 
   // Проверка карентЮзера. Если нет, ставлю. Кстати что-то не работает экспорт.
-
   if (!localStorage.getItem("currentUserId")) {
     localStorage.setItem("currentUserId", userId);
   }
-  /* 
-  const currentUserId = localStorage.getItem("currentUserId");
 
-  console.log(data.filter((i) => +i.id === +userId));*/
-
+  // Проверка на существование юзера в БД
   if (!data.filter((i) => +i.id === +userId).length) {
     return "This user is not found";
   }
-  console.log(data.filter((i) => +i.id === +userId).length);
+
   return (
     <>
       <b style={{ fontSize: 34 }}>UserPage</b>

@@ -8,9 +8,9 @@ import EditUserPage from "./components/EditUserPage";
 function App() {
   return (
     <Switch>
-      <Route path="/users/:userId?/edit" component={EditUserPage} />
-      <Route path="/users/:userId?" component={UsersLayout} />
-      {/* <Route path="/users" component={UsersList} /> */}
+      <Route path="/users/:userId?/:edit?/:excess?" component={UsersLayout} />
+      <Route path="/users/:userId?" component={UserPage} />
+      <Route path="/users" component={UsersList} />
       <Route path="/" component={HomePage} />
       <Redirect to="/" />
     </Switch>
