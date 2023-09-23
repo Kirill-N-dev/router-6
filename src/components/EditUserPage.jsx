@@ -1,6 +1,5 @@
 import React from "react";
-import { NavLink, useHistory, useParams, Redirect } from "react-router-dom";
-import { Route } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink, useParams, Navigate } from "react-router-dom";
 
 const EditUserPage = () => {
   const currentUserId = localStorage.getItem("currentUserId");
@@ -9,17 +8,16 @@ const EditUserPage = () => {
   /* console.log("/users/" + userId + "/edit"); */ // /users/2/edit
 
   const { userId, edit, excess } = useParams();
-  const history = useHistory();
 
   console.log(userId, edit, excess, 888);
 
   // Редирект, если excess!==false (введены лишние пути, сверх edit)
   if (excess) {
-    return <Redirect to={"/users/" + userId} />;
+    return <Navigate to={"/users/" + userId} />;
   }
   // Редирект, если каррентЮзер пытается редактировать чужую учётную запись
   if (+userId !== +currentUserId) {
-    return <Redirect to={"/users/" + currentUserId + "/edit"} />;
+    return <Navigate to={"/users/" + currentUserId + "/edit"} />;
   }
 
   return (
