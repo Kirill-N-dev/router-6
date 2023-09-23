@@ -4,6 +4,7 @@ import HomePage from "../components/HomePage";
 import UserPage from "../components/UserPage";
 import UsersLayout from "../components/UsersLayout";
 import UsersList from "../components/UsersList";
+import UserIdLayout from "../components/UserIdLayout";
 
 const Routes = () => [
   {
@@ -20,9 +21,16 @@ const Routes = () => [
       },
       {
         path: ":userId",
-        element: <UserPage />,
+        element: <UserIdLayout />,
+        children: [
+          {
+            path: "edit",
+            element: <EditUserPage />,
+          },
+          { path: "", element: <UserPage /> },
+          { path: "*", element: <Navigate to="" /> },
+        ],
       },
-      { path: ":userId/:edit/:excess", element: <EditUserPage /> },
       { path: "*", element: <Navigate to="" /> },
     ],
   },

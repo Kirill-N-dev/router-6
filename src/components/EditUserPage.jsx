@@ -9,12 +9,9 @@ const EditUserPage = () => {
 
   const { userId, edit, excess } = useParams();
 
-  console.log(userId, edit, excess, 888);
+  console.log(userId, edit, excess, 777);
+  console.log(typeof userId, typeof edit, typeof excess, 888);
 
-  // Редирект, если excess!==false (введены лишние пути, сверх edit)
-  if (excess) {
-    return <Navigate to={"/users/" + userId} />;
-  }
   // Редирект, если каррентЮзер пытается редактировать чужую учётную запись
   if (+userId !== +currentUserId) {
     return <Navigate to={"/users/" + currentUserId + "/edit"} />;

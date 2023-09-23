@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-const UsersLayout = () => {
+const UserIdLayout = () => {
   // Тут стилевая или функциональная обёртка, сейчас не нужна
   return (
     <>
@@ -10,4 +10,4 @@ const UsersLayout = () => {
   );
 };
 
-export default UsersLayout;
+export default UserIdLayout;

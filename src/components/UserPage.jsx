@@ -4,7 +4,7 @@ import { data } from "./UsersBase";
 
 const UserPage = () => {
   // userId - STRING !!!
-  const { userId } = useParams();
+  const { userId, edit } = useParams();
   const location = useLocation(); // сделал так, вроде локейшн не устарел, как юсХистори
 
   // Макс, это та проверка, которую ты просил в чате, но кажется, в ДЗ её не было
@@ -19,7 +19,7 @@ const UserPage = () => {
   if (!data.filter((i) => +i.id === +userId).length) {
     return "This user is not found";
   }
-
+  console.log(location.pathname, userId, edit);
   return (
     <>
       <b style={{ fontSize: 34 }}>UserPage</b>
@@ -28,7 +28,7 @@ const UserPage = () => {
       <div>User-{userId}</div>
       <br />
       <div>
-        <NavLink to={location.pathname + "/edit"}>Go to user edit page</NavLink>
+        <NavLink to={"edit"}>Go to user edit page</NavLink>
       </div>
       <br />
       <div>
